@@ -43,7 +43,7 @@ debug() {
     # Docker
     docker builder prune -f
     docker compose down --volumes
-    docker compose up -d --build
+    docker compose up --build
     handler
 }
 
@@ -53,7 +53,7 @@ setup() {
     printer -setup "Setting up Docker resources..."
     docker compose down --volumes --rmi all
     docker builder prune -f
-    docker compose up -d --build
+    docker compose up --build
     handler
 }
 
@@ -74,8 +74,8 @@ usage() {
 2. Commands:
     - [${ICON_START}] start
     - [${ICON_STOP}] stop
-    - [${ICON_SETUP}] debug
     - [${ICON_SETUP}] setup
+    - [${ICON_SETUP}] debug
     - [${ICON_CLEAN}] clean
 
 EOF
@@ -146,15 +146,14 @@ case $1 in
     stop)
         stop
         ;;
+    setup)
+        setup
+        ;;
     debug)
         debug
         ;;
-    setup)
-        setup "$@"
-        ;;
     clean)
-        shift
-        clean "$@"
+        clean
         ;;
     *)
         usage

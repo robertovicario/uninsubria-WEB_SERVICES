@@ -3,21 +3,11 @@
 
 # Web Service & AI Interfaces, MSc Course @ uninsubria
 
-This repository contains the seminar presented by me and its demo project for the Web Service & AI Interfaces course at the University of Insubria, part of the MSc in Computer Science.
+This repository contains the seminar presented by me and the related demo project for the Web Service & AI Interfaces course at the University of Insubria, part of the MSc in Computer Science.
 
 ## Overview
 
 You can easily download the presented seminar and its demo project below, remember to use it responsibly and cite it if you reference it.
-
-## Seminar
-
-| <a href="https://raw.githubusercontent.com/robertovicario/uninsubria-WEB_SERVICES/main/dist/Project_Work.pdf"><img src="docs/seminar.png" alt="seminar" height="256"></a> |
-| - |
-
-## Demo
-
-| <a href="https://uninsubria-web-services.onrender.com"><img src="docs/demo.png" alt="demo" height="256"></a> |
-| - |
 
 ## Prerequisites
 
@@ -26,18 +16,22 @@ You can easily download the presented seminar and its demo project below, rememb
 > - Docker
 > - Docker Compose
 
-## User Interface (UI)
+## Seminar
 
-| <a href="https://uninsubria-web-services.onrender.com"><img src="docs/demo.png" alt="UI" width="512"></a> |
-| :-: |
-| **Demo - Example** |
+| <a href="https://raw.githubusercontent.com/robertovicario/uninsubria-WEB_SERVICES/main/dist/Project_Work.pdf"><img src="docs/seminar.png" alt="seminar" height="512"></a> |
+| **Seminar: Microservice Architectures and Nanoservice Technologies** |
+
+## Demo
+
+| <a href="https://uninsubria-rvicario-webservices.onrender.com"><img src="docs/demo.png" alt="demo" height="512"></a> |
+| **Demo** |
 
 ## Instructions
 
 Usage:
 
 ```sh
-bash cmd.sh {start|stop|setup|clean}
+bash cmd.sh {start|stop|setup|debug|clean}
 ```
 
 ### `setup`
@@ -48,18 +42,14 @@ If you haven't built the project yet, you can do so by running:
 bash cmd.sh setup
 ```
 
-Once the setup process is complete, the project will be accessible at `localhost:8000`.
+Once the setup process is complete, the project will be accessible at `http://localhost/`.
 
-> [!WARNING]
->
-> If this port is already in use, search for all occurrences of `8000` within the project and replace them with your preferred port number. After making these changes, you'll need to rebuild the project for the modifications to take effect.
+### `debug`
 
-### `start`
-
-The program will run in debug mode, meaning frontend changes will be rendered upon reload. However, if you make changes to the backend, you will need to restart the program by running:
+During development, you will often need to recompile the frontend or backend code. The following command is a lightweight version of `setup`: it rebuilds only the essential project resources required to launch the application:
 
 ```sh
-bash cmd.sh start
+bash cmd.sh debug
 ```
 
 ### `stop`
@@ -70,8 +60,16 @@ To stop the program, simply run:
 bash cmd.sh stop
 ```
 
-> [!TIP]  
+> [!TIP]
 > For a quicker way to stop, use `ctrl + C` to force stop the program.
+
+### `start`
+
+To start an already built version of the program, simply run:
+
+```sh
+bash cmd.sh start
+```
 
 ### `clean`
 

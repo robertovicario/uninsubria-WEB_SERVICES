@@ -39,7 +39,11 @@ CONFIG = {
 # =========================
 
 # App
-app = FastAPI()
+app = FastAPI(
+    title=f"Dashboard – {CONFIG['system']['name']}",
+    description=CONFIG['system']['description'],
+    version=CONFIG['system']['version']
+)
 
 # Static
 app.mount(

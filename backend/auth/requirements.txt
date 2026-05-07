@@ -1,4 +1,3 @@
-dotenv
 fastapi
 jinja2
 uvicorn

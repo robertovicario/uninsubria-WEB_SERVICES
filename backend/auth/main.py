@@ -45,8 +45,7 @@ CONFIG = {
 app = FastAPI(
     title=f"Authentication – {CONFIG['system']['name']}",
     description=CONFIG['system']['description'],
-    version=CONFIG['system']['version'],
-    docs_url='/docs',
+    version=CONFIG['system']['version']
 )
 
 # Static
@@ -86,6 +85,3 @@ app.include_router(page.router)
 def set_paths():
     app.state.CONFIG = CONFIG
     app.state.DB_PATH = DB_PATH
-    print(CONFIG)
-    print(CONFIG.get("services"))
-

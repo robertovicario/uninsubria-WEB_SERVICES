@@ -2,9 +2,9 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY backend/auth /app
-COPY backend/utils /app/utils
-COPY frontend /app/frontend
+COPY ./backend/auth /app
+COPY ./backend/utils /app/utils
+COPY ./frontend /app/frontend
 
 RUN pip install --no-cache-dir -r requirements.txt
 
