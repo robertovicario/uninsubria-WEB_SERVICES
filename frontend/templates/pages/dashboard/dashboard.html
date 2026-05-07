@@ -1,0 +1,91 @@
+<!-- Jinja :: Template -->
+{% extends 'base.html' %}
+
+<!-- Jinja :: Theme -->
+{% set theme_title = 'Dashboard' %}
+
+<!-- Jinja :: Styles -->
+{% block styles %}{% endblock %}
+
+<!-- Jinja :: Content -->
+{% block content %}
+<section class="py-24 py-lg-24">
+    <div class="container mw-screen-xl">
+        <div class="row justify-content-center text-center mb-12">
+            <div class="col-lg-7">
+                <div class="text-primary fw-semibold mb-4">Thank you for your attention</div>
+                <h1 class="display-6 ls-tighter">That's it!</h1>
+                <p class="lead mt-5 mb-10">This demo showcased a microservice-based authentication system. Below are the core technologies used to build and deploy the application.</p>
+                <div class="hstack gap-3 justify-content-center">
+                    <a href="/auth/api/logout" class="btn btn-primary">Sign out</a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center g-7">
+            <div class="col-lg-5">
+                <div class="card bg-body-secondary border-0 shadow-none">
+                    <div class="card-body px-7 py-8">
+                        <div class="d-flex align-items-start gap-6">
+                            <div class="flex-none icon icon-shape bg-body text-heading border shadow-soft-2 rounded text-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256"><path d="M128 0C57.33 0 0 57.33 0 128s57.33 128 128 128 128-57.33 128-128S198.67 0 128 0Zm-6.67 230.605v-80.288H76.699l64.128-124.922v80.288h42.966L121.33 230.605Z" fill="#009688"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="h4 mb-2">FastAPI</h5>
+                                <p>A modern, high-performance Python framework used to build scalable APIs and backend services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card bg-body-secondary border-0 shadow-none">
+                    <div class="card-body px-7 py-8">
+                        <div class="d-flex align-items-start gap-6">
+                            <div class="flex-none icon icon-shape bg-body text-heading border shadow-soft-2 rounded text-2xl">
+                                <svg width="800px" height="800px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>file_type_nginx</title><path d="M15.948,2h.065a10.418,10.418,0,0,1,.972.528Q22.414,5.65,27.843,8.774a.792.792,0,0,1,.414.788c-.008,4.389,0,8.777-.005,13.164a.813.813,0,0,1-.356.507q-5.773,3.324-11.547,6.644a.587.587,0,0,1-.657.037Q9.912,26.6,4.143,23.274a.7.7,0,0,1-.4-.666q0-6.582,0-13.163a.693.693,0,0,1,.387-.67Q9.552,5.657,14.974,2.535c.322-.184.638-.379.974-.535" style="fill:#019639"/><path d="M8.767,10.538q0,5.429,0,10.859a1.509,1.509,0,0,0,.427,1.087,1.647,1.647,0,0,0,2.06.206,1.564,1.564,0,0,0,.685-1.293c0-2.62-.005-5.24,0-7.86q3.583,4.29,7.181,8.568a2.833,2.833,0,0,0,2.6.782,1.561,1.561,0,0,0,1.251-1.371q.008-5.541,0-11.081a1.582,1.582,0,0,0-3.152,0c0,2.662-.016,5.321,0,7.982-2.346-2.766-4.663-5.556-7-8.332A2.817,2.817,0,0,0,10.17,9.033,1.579,1.579,0,0,0,8.767,10.538Z" style="fill:#fff"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="h4 mb-2">Nginx</h5>
+                                <p>An open-source web server and reverse proxy used as the API gateway for routing and load balancing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card bg-body-secondary border-0 shadow-none">
+                    <div class="card-body px-7 py-8">
+                        <div class="d-flex align-items-start gap-6">
+                            <div class="flex-none icon icon-shape bg-body text-heading border shadow-soft-2 rounded text-2xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#008fe2"><path d="M13.98 11.08h2.12a.19.19 0 0 0 .19-.19V9.01a.19.19 0 0 0-.19-.19h-2.12a.18.18 0 0 0-.18.18v1.9c0 .1.08.18.18.18m-2.95-5.43h2.12a.19.19 0 0 0 .18-.19V3.57a.19.19 0 0 0-.18-.18h-2.12a.18.18 0 0 0-.19.18v1.9c0 .1.09.18.19.18m0 2.71h2.12a.19.19 0 0 0 .18-.18V6.29a.19.19 0 0 0-.18-.18h-2.12a.18.18 0 0 0-.19.18v1.89c0 .1.09.18.19.18m-2.93 0h2.12a.19.19 0 0 0 .18-.18V6.29a.18.18 0 0 0-.18-.18H8.1a.18.18 0 0 0-.18.18v1.89c0 .1.08.18.18.18m-2.96 0h2.11a.19.19 0 0 0 .19-.18V6.29a.18.18 0 0 0-.19-.18H5.14a.19.19 0 0 0-.19.18v1.89c0 .1.08.18.19.18m5.89 2.72h2.12a.19.19 0 0 0 .18-.19V9.01a.19.19 0 0 0-.18-.19h-2.12a.18.18 0 0 0-.19.18v1.9c0 .1.09.18.19.18m-2.93 0h2.12a.18.18 0 0 0 .18-.19V9.01a.18.18 0 0 0-.18-.19H8.1a.18.18 0 0 0-.18.18v1.9c0 .1.08.18.18.18m-2.96 0h2.11a.18.18 0 0 0 .19-.19V9.01a.18.18 0 0 0-.18-.19H5.14a.19.19 0 0 0-.19.19v1.88c0 .1.08.19.19.19m-2.92 0h2.12a.18.18 0 0 0 .18-.19V9.01a.18.18 0 0 0-.18-.19H2.22a.18.18 0 0 0-.19.18v1.9c0 .1.08.18.19.18m21.54-1.19c-.06-.05-.67-.51-1.95-.51-.34 0-.68.03-1.01.09a3.77 3.77 0 0 0-1.72-2.57l-.34-.2-.23.33a4.6 4.6 0 0 0-.6 1.43c-.24.97-.1 1.88.4 2.66a4.7 4.7 0 0 1-1.75.42H.76a.75.75 0 0 0-.76.75 11.38 11.38 0 0 0 .7 4.06 6.03 6.03 0 0 0 2.4 3.12c1.18.73 3.1 1.14 5.28 1.14.98 0 1.96-.08 2.93-.26a12.25 12.25 0 0 0 3.82-1.4 10.5 10.5 0 0 0 2.61-2.13c1.25-1.42 2-3 2.55-4.4h.23c1.37 0 2.21-.55 2.68-1 .3-.3.55-.66.7-1.06l.1-.28Z"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="h4 mb-2">Docker</h5>
+                                <p>A containerization platform used to package, deploy, and manage services consistently across environments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card bg-body-secondary border-0 shadow-none">
+                    <div class="card-body px-7 py-8">
+                        <div class="d-flex align-items-start gap-6">
+                            <div class="flex-none icon icon-shape bg-body text-heading border shadow-soft-2 rounded text-lg">
+                                <svg fill="#000000" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Render</title><path d="M18.263.007c-3.121-.147-5.744 2.109-6.192 5.082-.018.138-.045.272-.067.405-.696 3.703-3.936 6.507-7.827 6.507-1.388 0-2.691-.356-3.825-.979a.2024.2024 0 0 0-.302.178V24H12v-8.999c0-1.656 1.338-3 2.987-3h2.988c3.382 0 6.103-2.817 5.97-6.244-.12-3.084-2.61-5.603-5.682-5.75"/></svg>
+                            </div>
+                            <div>
+                                <h5 class="h4 mb-2">Render</h5>
+                                <p>A cloud deployment platform used to host and deliver the application in both development and production environments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+<!-- Jinja :: Scripts -->
+{% block scripts %}{% endblock %}

@@ -1,13 +1,34 @@
-version: "3.8"
-
 services:
-    pythonapp-app:
-        container_name: "pythonapp-app"
-        image: "pythonapp-app:1.0.0"
+
+    app-auth:
+        container_name: "app-auth"
         build:
-            context: "."
-            dockerfile: "dev/Dockerfile"
+            context: .
+            dockerfile: backend/auth/Dockerfile
+        env_file:
+            - backend/auth/env/app.env
         ports:
-            - "7860:7860"
+            - "8000:8000"
+        restart: unless-stopped
+
+    app-dashboard:
+        container_name: "app-dashboard"
+        build:
+            context: .
+            dockerfile: backend/dashboard/Dockerfile
+        env_file:
+            - backend/dashboard/env/app.env
+        ports:
+            - "8001:8001"
+        restart: unless-stopped
+
+    nginx:
+        container_name: "nginx"
+        image: nginx:alpine
         volumes:
-            - "./app:/app"
+            - ./nginx/dev.conf:/etc/nginx/nginx.conf:ro
+        ports:
+            - "80:80"
+        depends_on:
+            - app-auth
+            - app-dashboard

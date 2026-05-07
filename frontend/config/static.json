@@ -1,0 +1,18 @@
+{
+    "system": {
+        "lang": "en",
+        "name": "Example",
+        "description": "Example application of a microservice-based authentication system.",
+        "version": "1.0.0",
+        "repository": {
+            "server": "github.com",
+            "user": "robertovicario",
+            "name": "Example",
+            "url": "https://github.com/robertovicario/uninsubria-WEB_SERVICES-Project-Work"
+        }
+    },
+    "ui": {
+        "theme": "light",
+        "primary": "#335CFF"
+    }
+}

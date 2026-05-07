@@ -1,0 +1,14 @@
+/* ========================= */
+/* Root */
+/* ========================= */
+
+:root {
+	--primary: var(--bs-primary);
+}
+
+::selection {
+	color: var(--bs-primary);
+	background-color: var(--bs-primary-bg-subtle);
+}
+
+/* ========================= */

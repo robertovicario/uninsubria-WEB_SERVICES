@@ -1,0 +1,8 @@
+{
+    "users": [
+        {
+            "email": "info@example.com",
+            "password": "pbkdf2_sha256$260000$a78e4fa12b8db6fbc3d022c57a115ea1$41a277501a6a006ec9827101f1d00744983697bc94e1f3102a769816d59c6196"
+        }
+    ]
+}
