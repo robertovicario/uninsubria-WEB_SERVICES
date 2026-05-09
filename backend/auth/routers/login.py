@@ -6,7 +6,7 @@ from fastapi import APIRouter, Request, Response, status
 from fastapi.responses import RedirectResponse
 import json
 
-from utils import security as sec
+from packages.shared.auth import session as ses_pkg
 
 # =========================
 # Endpoints
@@ -37,16 +37,16 @@ async def login(request: Request, response: Response):
         if (
             email == user['email']
             and
-            sec.check_password(password, user['password'])
+            ses_pkg.check_password(password, user['password'])
         ):
-            max_age = sec.REMEMBER_SESSION_MAX_AGE if remember_me else sec.SESSION_MAX_AGE
-            token = sec.create_session(user['email'], max_age)
+            max_age = ses_pkg.REMEMBER_SESSION_MAX_AGE if remember_me else ses_pkg.SESSION_MAX_AGE
+            token = ses_pkg.create_session(user['email'], max_age)
             response.set_cookie(
-                key=sec.SESSION_COOKIE,
+                key=ses_pkg.SESSION_COOKIE,
                 value=token,
                 max_age=max_age,
                 httponly=True,
-                secure=sec.SESSION_COOKIE_SECURE,
+                secure=ses_pkg.SESSION_COOKIE_SECURE,
                 samesite='lax'
             )
             return {
@@ -70,7 +70,7 @@ def logout():
         status_code=303
     )
     response.delete_cookie(
-        key=sec.SESSION_COOKIE,
+        key=ses_pkg.SESSION_COOKIE,
         path='/'
     )
 

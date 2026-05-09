@@ -6,7 +6,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 
-from utils import security as sec
+from packages.shared.auth import session as ses_pkg
 
 # =========================
 # Endpoints
@@ -24,7 +24,7 @@ templates = Jinja2Templates(directory='/app/frontend/templates')
 async def page(request: Request):
 
     # Redirect
-    if sec.verify_session(request.cookies.get(sec.SESSION_COOKIE)):
+    if ses_pkg.verify_session(request.cookies.get(ses_pkg.SESSION_COOKIE)):
         return RedirectResponse('/dashboard', status_code=303)
 
     # -------------------------

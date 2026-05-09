@@ -6,7 +6,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 
-from utils import security as sec
+from packages.shared.auth import session as ses_pkg
 
 # =========================
 # Endpoints
@@ -29,7 +29,7 @@ def dashboard(request: Request):
     # -------------------------
 
     # User
-    user = sec.verify_session(request.cookies.get(sec.SESSION_COOKIE))
+    user = ses_pkg.verify_session(request.cookies.get(ses_pkg.SESSION_COOKIE))
     if not user:
         return RedirectResponse(
             '/login',
