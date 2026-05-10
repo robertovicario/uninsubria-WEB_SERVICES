@@ -4,35 +4,8 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-import json
-import os
 
-from frontend.config.dynamic import dynamic
 from routers import page
-
-# =========================
-# Paths
-# =========================
-
-# Database
-DB_PATH = os.path.join(
-    os.path.dirname(__file__),
-    'db',
-    'users.json'
-)
-
-# Configurations
-CONFIG_PATH = os.path.join(
-    os.path.dirname(__file__), 'frontend', 'config'
-)
-with open(os.path.join(CONFIG_PATH, 'static.json')) as f:
-    static = json.load(f)
-
-CONFIG = {
-    **static,
-    **dynamic
-}
 
 # =========================
 # FastAPI
@@ -40,17 +13,12 @@ CONFIG = {
 
 # App
 app = FastAPI(
-    title=f"Dashboard – {CONFIG['system']['name']}",
-    description=CONFIG['system']['description'],
-    version=CONFIG['system']['version']
+    title='Dashboard',
+    version='1.0.0'
 )
 
-# Static
-app.mount(
-    '/static',
-    StaticFiles(directory='/app/frontend/static'),
-    name='static'
-)
+# Routers
+app.include_router(page.router)
 
 # Middleware
 app.add_middleware(
@@ -69,14 +37,3 @@ async def add_security_headers(request, call_next):
     response.headers['Referrer-Policy'] = 'same-origin'
     response.headers['Permissions-Policy'] = 'camera=(), microphone=(), geolocation=()'
     return response
-
-# Routers
-app.include_router(page.router)
-
-# =========================
-# Events
-# =========================
-
-@app.on_event('startup')
-def set_paths():
-    app.state.CONFIG = CONFIG

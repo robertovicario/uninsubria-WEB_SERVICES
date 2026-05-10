@@ -9,7 +9,7 @@ import json
 from packages.shared.auth import session as ses_pkg
 
 # =========================
-# Endpoints
+# Configurations
 # =========================
 
 # FastAPI
@@ -66,8 +66,7 @@ def logout():
 
     # Redirect
     response = RedirectResponse(
-        '/login',
-        status_code=303
+        '/login', status_code=302
     )
     response.delete_cookie(
         key=ses_pkg.SESSION_COOKIE,

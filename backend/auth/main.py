@@ -4,15 +4,9 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-import json
 import os
 
-from frontend.config.dynamic import dynamic
-from routers import (
-    login,
-    page
-)
+from routers import login
 
 # =========================
 # Paths
@@ -25,35 +19,18 @@ DB_PATH = os.path.join(
     'users.json'
 )
 
-# Configurations
-CONFIG_PATH = os.path.join(
-    os.path.dirname(__file__), 'frontend', 'config'
-)
-with open(os.path.join(CONFIG_PATH, 'static.json')) as f:
-    static = json.load(f)
-
-CONFIG = {
-    **static,
-    **dynamic
-}
-
 # =========================
 # FastAPI
 # =========================
 
 # App
 app = FastAPI(
-    title=f"Authentication – {CONFIG['system']['name']}",
-    description=CONFIG['system']['description'],
-    version=CONFIG['system']['version']
+    title='Authentication',
+    version='1.0.0'
 )
 
-# Static
-app.mount(
-    '/static',
-    StaticFiles(directory='/app/frontend/static'),
-    name='static'
-)
+# Routers
+app.include_router(login.router)
 
 # Middleware
 app.add_middleware(
@@ -73,15 +50,9 @@ async def add_security_headers(request, call_next):
     response.headers['Permissions-Policy'] = 'camera=(), microphone=(), geolocation=()'
     return response
 
-# Routers
-app.include_router(login.router)
-app.include_router(page.router)
-
-# =========================
 # Events
-# =========================
-
 @app.on_event('startup')
-def set_paths():
-    app.state.CONFIG = CONFIG
+def setup():
+
+    # Paths
     app.state.DB_PATH = DB_PATH

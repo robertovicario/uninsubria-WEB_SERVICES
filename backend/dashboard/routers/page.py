@@ -9,7 +9,7 @@ from fastapi.templating import Jinja2Templates
 from packages.shared.auth import session as ses_pkg
 
 # =========================
-# Endpoints
+# Configurations
 # =========================
 
 # FastAPI
@@ -24,7 +24,7 @@ templates = Jinja2Templates(directory='/app/frontend/templates')
 def dashboard(request: Request):
 
     # Template
-    template = 'pages/dashboard/dashboard.html'
+    template = 'pages/dashboard/page.html'
 
     # -------------------------
 
@@ -32,8 +32,7 @@ def dashboard(request: Request):
     user = ses_pkg.verify_session(request.cookies.get(ses_pkg.SESSION_COOKIE))
     if not user:
         return RedirectResponse(
-            '/login',
-            status_code=303
+            '/login', status_code=302
         )
 
     # -------------------------
