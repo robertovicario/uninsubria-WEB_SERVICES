@@ -37,3 +37,8 @@ async def add_security_headers(request, call_next):
     response.headers['Referrer-Policy'] = 'same-origin'
     response.headers['Permissions-Policy'] = 'camera=(), microphone=(), geolocation=()'
     return response
+
+# Health Check
+@app.get('/health')
+def health():
+    return {'status': 'ok'}

@@ -89,3 +89,8 @@ def setup():
 
     # Configurations
     app.state.CONFIG = CONFIG
+
+# Health Check
+@app.get('/health')
+def health():
+    return {'status': 'ok'}

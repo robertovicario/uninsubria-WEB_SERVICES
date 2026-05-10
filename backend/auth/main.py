@@ -56,3 +56,8 @@ def setup():
 
     # Paths
     app.state.DB_PATH = DB_PATH
+
+# Health Check
+@app.get('/health')
+def health():
+    return {'status': 'ok'}
