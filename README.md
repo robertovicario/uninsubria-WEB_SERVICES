@@ -1,4 +1,4 @@
-| <img src="docs/uninsubria.svg" width="128"> |
+| <img src="docs/theme/uninsubria.svg" width="128"> |
 | - |
 
 # Web Service & AI Interfaces, MSc Course @ uninsubria
@@ -18,15 +18,15 @@ You can easily download the presented seminar and its demo project below, rememb
 
 ## Seminar
 
-| <a href="https://raw.githubusercontent.com/robertovicario/uninsubria-WEB_SERVICES/main/dist/Seminar__Microservice_Architectures.pdf"><img src="docs/seminar.png" alt="seminar" height="384"></a> |
+| <a href="https://raw.githubusercontent.com/robertovicario/uninsubria-WEB_SERVICES/main/dist/Seminar__Microservice_Architectures.pdf"><img src="docs/img/seminar.png" alt="seminar" height="256"></a> |
 | :--: |
 | **Seminar: Microservice Architectures** |
 
 ## Demo
 
-| <a href="https://uninsubria-rvicario-ws.onrender.com"><img src="docs/demo.png" alt="demo" height="384"></a> |
-| :--: |
-| **Demo** |
+| <a href="https://uninsubria-rvicario-ws.onrender.com"><img src="docs/img/demo-1.png" alt="demo" height="256"></a> | <a href="https://uninsubria-rvicario-ws.onrender.com"><img src="docs/img/demo-2.png" alt="demo" height="256"></a> |
+| :--: | :--: |
+| **Login – Demo** | **Dashboard – Demo** |
 
 ## Instructions
 
