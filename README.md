@@ -3,7 +3,7 @@
 
 # Web Service & AI Interfaces, MSc Course @ uninsubria
 
-This repository contains the seminar presented by me and the related demo project for the Web Service & AI Interfaces course at the University of Insubria, part of the MSc in Computer Science.
+This repository contains the personal materials for the Web Service & AI Interfaces course at the University of Insubria, part of the MSc in Computer Science.
 
 ## Overview
 
@@ -18,12 +18,14 @@ You can easily download the presented seminar and its demo project below, rememb
 
 ## Seminar
 
-| <a href="https://raw.githubusercontent.com/robertovicario/uninsubria-WEB_SERVICES/main/dist/Project_Work.pdf"><img src="docs/seminar.png" alt="seminar" height="512"></a> |
-| **Seminar: Microservice Architectures and Nanoservice Technologies** |
+| <a href="https://raw.githubusercontent.com/robertovicario/uninsubria-WEB_SERVICES/main/dist/Seminar__Microservice_Architectures.pdf"><img src="docs/seminar.png" alt="seminar" height="384"></a> |
+| :--: |
+| **Seminar: Microservice Architectures** |
 
 ## Demo
 
-| <a href="https://uninsubria-rvicario-webservices.onrender.com"><img src="docs/demo.png" alt="demo" height="512"></a> |
+| <a href="https://uninsubria-rvicario-ws.onrender.com"><img src="docs/demo.png" alt="demo" height="384"></a> |
+| :--: |
 | **Demo** |
 
 ## Instructions
