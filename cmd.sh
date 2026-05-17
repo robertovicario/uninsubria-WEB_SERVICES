@@ -49,7 +49,7 @@ stop() {
 }
 
 debug() {
-    printer -setup "Starting debug..."
+    printer -setup "Debugging the project..."
 
     # Docker
     docker builder prune -f
@@ -64,7 +64,7 @@ debug() {
 setup() {
 
     # Docker
-    printer -setup "Setting up Docker resources..."
+    printer -setup "Setting up the project..."
     docker compose down --volumes --rmi all
     docker builder prune -f
     docker compose up --build
@@ -77,7 +77,7 @@ setup() {
 clean() {
 
     # Docker
-    printer -clean "Cleaning Docker resources..."
+    printer -clean "Cleaning the project resources..."
     docker compose down --volumes --rmi all
 
     # Handler
