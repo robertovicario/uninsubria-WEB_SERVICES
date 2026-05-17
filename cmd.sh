@@ -1,32 +1,40 @@
 #!/bin/bash
 
+# =========================
+# Configurations
+# =========================
+
 # Icons
-ICON_START="▶"
-ICON_STOP="■"
-ICON_SETUP="◆"
-ICON_RUN="●"
-ICON_AUTH="◉"
-ICON_DOWNLOAD="↓"
-ICON_CLEAN="▽"
-ICON_OK="✓"
-ICON_ERR="✗"
+ICON_START="▶"     # U+25B6
+ICON_STOP="■"      # U+25A0
+ICON_SETUP="⚙"     # U+2699
+ICON_DOWNLOAD="↓"  # U+2193
+ICON_CLEAN="♻"     # U+267B
+ICON_OK="✓"        # U+2713
+ICON_ERR="✗"       # U+2717
 
 # Colors
+RESET="\033[0m"
 RED="\033[31m"
 GREEN="\033[32m"
-BLUE="\033[34m"
-CYAN="\033[36m"
-MAGENTA="\033[35m"
 YELLOW="\033[33m"
+BLUE="\033[34m"
+MAGENTA="\033[35m"
+CYAN="\033[36m"
 
-# -------------------------
+# =========================
+# Methods
+# =========================
 
 start() {
     printer -start "Starting the project..."
 
     # Docker
     docker compose start
-    handler
+
+    # Handler
+    STATUS=$?
+    handler $STATUS
 }
 
 stop() {
@@ -34,7 +42,10 @@ stop() {
 
     # Docker
     docker compose stop
-    handler
+
+    # Handler
+    STATUS=$?
+    handler $STATUS
 }
 
 debug() {
@@ -44,7 +55,10 @@ debug() {
     docker builder prune -f
     docker compose down --volumes
     docker compose up --build
-    handler
+
+    # Handler
+    STATUS=$?
+    handler $STATUS
 }
 
 setup() {
@@ -54,7 +68,10 @@ setup() {
     docker compose down --volumes --rmi all
     docker builder prune -f
     docker compose up --build
-    handler
+
+    # Handler
+    STATUS=$?
+    handler $STATUS
 }
 
 clean() {
@@ -62,8 +79,15 @@ clean() {
     # Docker
     printer -clean "Cleaning Docker resources..."
     docker compose down --volumes --rmi all
-    handler
+
+    # Handler
+    STATUS=$?
+    handler $STATUS
 }
+
+# =========================
+# Handlers
+# =========================
 
 usage() {
     cat <<EOF
@@ -97,14 +121,10 @@ printer() {
             COLOR="$RED"
             ;;
         -debug)
-            ICON="$ICON_RUN"
+            ICON="$ICON_START"
             COLOR="$CYAN"
             ;;
         -setup)
-            ICON="$ICON_SETUP"
-            COLOR="$MAGENTA"
-            ;;
-        -install)
             ICON="$ICON_SETUP"
             COLOR="$MAGENTA"
             ;;
@@ -121,17 +141,18 @@ printer() {
             COLOR="$RED"
             ;;
         *)
-            ICON="ICON_ERR"
+            ICON="$ICON_ERR"
             COLOR="$RED"
             ;;
     esac
     echo ""
-    printf "%b%s %s%b\n" "$COLOR" ["$ICON"] "$MESSAGE" "$RESET"
+    echo -e "${COLOR}[${ICON}] ${MESSAGE}${RESET}"
     echo ""
 }
 
 handler() {
-    if [ $? -eq 0 ]; then
+    local STATUS=$1
+    if [ $STATUS -eq 0 ]; then
         printer -success "Process completed successfully"
     else
         printer -error "An unexpected error occurred"
